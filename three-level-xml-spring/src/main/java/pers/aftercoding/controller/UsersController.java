@@ -8,7 +8,11 @@ import pers.aftercoding.service.impl.UsersServiceImpl;
 public class UsersController {
     // UI, how to access service level
 
-    public UsersService usersService = new UsersServiceImpl();
+    public void setUsersService(UsersService usersService) {
+        this.usersService = usersService;
+    }
+
+    public UsersService usersService;// = new UsersServiceImpl();
     public int insert(Users users){
 
         return usersService.insert(users);

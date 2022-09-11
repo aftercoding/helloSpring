@@ -2,5 +2,21 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    create object -->
+<!--   add data access object-->
+    <bean id="uMapper" class="pers.aftercoding.dao.UsersMapperImpl">
+    </bean>
+
+<!--    add service bean-->
+    <bean id="uService" class="pers.aftercoding.service.impl.UsersServiceImpl">
+        <property name="usersMapper" ref="uMapper">
+
+        </property>
+    </bean>
+    <bean id="uController" class="pers.aftercoding.controller.UsersController">
+        <property name="usersService" ref="uService">
+
+        </property>
+    </bean>
 
 </beans>

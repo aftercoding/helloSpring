@@ -8,9 +8,16 @@ import pers.aftercoding.service.UsersService;
 //service level
 public class UsersServiceImpl implements UsersService {
     //Remember: Almost every service level need some objects of data access level
-    private UsersMapper usersMapper = new UsersMapperImpl();
+    private UsersMapper usersMapper;// = new UsersMapperImpl();
+
+    public void setUsersMapper(UsersMapper usersMapper) {
+        this.usersMapper = usersMapper;
+    }
+
+    // add setter method
     @Override
     public int insert(Users users) {
+
         return usersMapper.insert(users);
     }
 }
